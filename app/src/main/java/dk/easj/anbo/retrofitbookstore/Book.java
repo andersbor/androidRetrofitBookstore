@@ -24,6 +24,16 @@ class Book implements Serializable {
     @Expose
     private String title;
 
+    public Book() {
+    }
+
+    public Book(String author, String title, String publisher, Double price) {
+        this.author = author;
+        this.price = price;
+        this.publisher = publisher;
+        this.title = title;
+    }
+
     public String getAuthor() {
         return author;
     }

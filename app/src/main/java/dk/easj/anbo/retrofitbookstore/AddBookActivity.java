@@ -56,11 +56,7 @@ public class AddBookActivity extends AppCompatActivity {
         BookStoreService bookStoreService = ApiUtils.getBookStoreService();
 
         // Call<Book> saveBookCall = bookStoreService.saveBook(author, title, publisher, price);
-        Book book = new Book();
-        book.setAuthor(author);
-        book.setTitle(title);
-        book.setPublisher(publisher);
-        book.setPrice(price);
+        Book book = new Book(author, title, publisher, price);
 
         Call<Book> saveBookCall = bookStoreService.saveBookBody(book);
         saveBookCall.enqueue(new Callback<Book>() {

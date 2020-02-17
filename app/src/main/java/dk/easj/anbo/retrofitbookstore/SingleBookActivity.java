@@ -86,13 +86,11 @@ public class SingleBookActivity extends AppCompatActivity {
                 Log.e(LOG_TAG, "Problem: " + t.getMessage());
             }
         });
-
     }
 
-    public void updateBookButtonClicked(View view) {
+    public void updateBookButtonClick(View view) {
         Log.d(LOG_TAG, "updateBookButtonClicked");
-        // TODO UPDATE Retrofit
-
+/*
         EditText authorField = findViewById(R.id.singleBookAuthorEditText);
         EditText titleField = findViewById(R.id.singleBookTitleEditText);
         EditText publisherField = findViewById(R.id.singleBookPublisherEditText);
@@ -117,5 +115,12 @@ public class SingleBookActivity extends AppCompatActivity {
         book.setPublisher(publisher);
         book.setPrice(price);
         Log.d(LOG_TAG, "Update " + book);
+
+ */
+    }
+
+
+    public void updateBookButtonClicked(View view) {
+        Log.d(LOG_TAG, "updateBookButtonClicked");
     }
 }
