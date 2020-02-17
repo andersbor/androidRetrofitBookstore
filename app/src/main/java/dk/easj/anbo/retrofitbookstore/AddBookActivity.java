@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -68,9 +69,12 @@ public class AddBookActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Book theNewBook = response.body();
                     Log.d("MYBOOKS", theNewBook.toString());
-                    Snackbar.make(view, "Book added, id: " + theNewBook.getId(), Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(AddBookActivity.this, "Book added, id: " + theNewBook.getId(), Toast.LENGTH_SHORT).show();
+//                    Snackbar.make(view, "Book added, id: " + theNewBook.getId(), Snackbar.LENGTH_LONG).show();
                 } else {
-                    Log.e("MYBOOKS", response.code() + " " + response.message());
+                    String problem = "Problem: " + response.code() + " " + response.message();
+                    Log.e("MYBOOKS", problem);
+                    Toast.makeText(AddBookActivity.this, problem, Toast.LENGTH_SHORT).show();
                 }
             }
 

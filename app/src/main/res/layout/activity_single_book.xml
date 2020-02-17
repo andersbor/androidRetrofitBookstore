@@ -1,101 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     tools:context="dk.easj.anbo.retrofitbookstore.SingleBookActivity">
+    <!-- SnackBar requires CoordinatorLayout -->
 
-    <TextView
-        android:id="@+id/book_heading_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/book_heading_textview"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:labelFor="@id/book_title_edittext"
-                android:text="Title" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/book_title_edittext"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Title"
-                android:inputType="textCapWords" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:labelFor="@+id/book_author_edittext"
-                android:text="Author" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/singleBookTitleEditText"
+                    android:text="Title" />
 
-            <EditText
-                android:id="@+id/book_author_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Author"
-                android:inputType="textCapWords" />
+                <EditText
+                    android:id="@+id/singleBookTitleEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Title"
+                    android:inputType="textCapWords" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:labelFor="@id/book_publisher_edittext"
-                android:text="Puhlisher" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@+id/singleBookAuthorEditText"
+                    android:text="Author" />
 
-            <EditText
-                android:id="@+id/book_publisher_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Publisher"
-                android:inputType="textCapWords" />
+                <EditText
+                    android:id="@+id/singleBookAuthorEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Author"
+                    android:inputType="textCapWords" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:labelFor="@+id/book_price_edittext"
-                android:text="Price" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/singleBookPublisherEditText"
+                    android:text="Puhlisher" />
 
-            <EditText
-                android:id="@+id/book_price_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Price"
-                android:inputType="numberDecimal" />
+                <EditText
+                    android:id="@+id/singleBookPublisherEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Publisher"
+                    android:inputType="textCapWords" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="updateBookButtonClicked"
-                android:text="Update" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@+id/singleBookPriceEditText"
+                    android:text="Price" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="deleteBookButtonClicked"
-                android:text="Delete" />
+                <EditText
+                    android:id="@+id/singleBookPriceEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Price"
+                    android:inputType="numberDecimal" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="backButtonClicked"
-                android:text="Back" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="updateBookButtonClicked"
+                    android:text="Update" />
 
-            <TextView
-                android:id="@+id/book_message_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="deleteBookButtonClicked"
+                    android:text="Delete" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="backButtonClicked"
+                    android:text="Back" />
+
+                <TextView
+                    android:id="@+id/singleBookMessageTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 

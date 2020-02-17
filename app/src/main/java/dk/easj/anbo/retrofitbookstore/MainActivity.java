@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -42,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        SwipeRefreshLayout refreshLayout = findViewById(R.id.mainSwiperefresh);
+        refreshLayout.setOnRefreshListener(() -> {
+            getAndShowAllBooks();
+            refreshLayout.setRefreshing(false);
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         getAndShowAllBooks();
     }
 
@@ -63,10 +74,13 @@ public class MainActivity extends AppCompatActivity {
         getAllBooksCall.enqueue(new Callback<List<Book>>() {
             @Override
             public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
-                List<Book> allBooks = response.body();
-                Log.d(LOG_TAG, allBooks.toString());
-                // TODO populate RecyclerView, including click on elements
-                populateRecyclerView(allBooks);
+                if (response.isSuccessful()) {
+                    List<Book> allBooks = response.body();
+                    Log.d(LOG_TAG, allBooks.toString());
+                    populateRecyclerView(allBooks);
+                } else {
+                    Log.d(LOG_TAG, "Problem " + response.code() + " " + response.message());
+                }
             }
 
             @Override
@@ -84,10 +98,11 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new RecyclerViewSimpleAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position, Object item) {
-                Book book = (Book)item;
+                Book book = (Book) item;
                 Log.d(LOG_TAG, item.toString());
                 Intent intent = new Intent(MainActivity.this, SingleBookActivity.class);
                 intent.putExtra(SingleBookActivity.BOOK, book);
+                Log.d(LOG_TAG, "putExtra " + book.toString());
                 startActivity(intent);
             }
         });
