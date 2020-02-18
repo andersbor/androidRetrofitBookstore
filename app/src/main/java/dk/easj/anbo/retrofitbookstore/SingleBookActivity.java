@@ -52,13 +52,10 @@ public class SingleBookActivity extends AppCompatActivity {
     }
 
     public void deleteBookButtonClicked(View view) {
-        Log.d(LOG_TAG, "deleteBookButtonClicked");
-        BookStoreService bookStoreService = ApiUtils.getBookStoreService();
-        Log.d(LOG_TAG, "bookStoreService");
+        BookStoreService bookStoreService = ApiUtils.getBookStoreService();;
         int bookId = originalBook.getId();
-        Log.d(LOG_TAG, "bookId " + bookId);
         Call<Book> deleteBookCall = bookStoreService.deleteBook(bookId);
-        Log.d(LOG_TAG, "deleteBookCall");
+        messageView.setText("");
 
         deleteBookCall.enqueue(new Callback<Book>() {
             @Override
@@ -85,18 +82,7 @@ public class SingleBookActivity extends AppCompatActivity {
         });
     }
 
-    public void updateBookButtonClick(View view) {
-        Log.d(LOG_TAG, "updateBookButtonClicked");
-
-    }
-
-
-    public void updateBookButtonClicked(View view) {
-        Log.d(LOG_TAG, "updateBookButtonClicked");
-        Toast.makeText(this, "updateBookButtonClicked", Toast.LENGTH_SHORT).show();
-    }
-
-    public void anotherButtonClicked(View view) {
+    public void updateButtonClicked(View view) {
         Log.d(LOG_TAG, "anotherButtonClicked");
         Toast.makeText(this, "anotherButtonClicked", Toast.LENGTH_SHORT).show();
 
@@ -112,7 +98,7 @@ public class SingleBookActivity extends AppCompatActivity {
         String publisher = publisherField.getText().toString().trim();
         String priceString = priceField.getText().toString().trim();
 
-        double price = 0.0;
+        double price;
         try {
             price = Double.parseDouble(priceString);
         } catch (NumberFormatException ex) {

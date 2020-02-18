@@ -77,6 +77,6 @@ class Book implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return author + " " + title + " " + publisher + " " + price;
+        return author + ": " + title + " " + publisher + ", " + price;
     }
 }

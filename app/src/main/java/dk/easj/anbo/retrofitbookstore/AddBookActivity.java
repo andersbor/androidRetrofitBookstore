@@ -1,20 +1,16 @@
 package dk.easj.anbo.retrofitbookstore;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AddBookActivity extends AppCompatActivity {
 
@@ -36,7 +32,7 @@ public class AddBookActivity extends AppCompatActivity {
         String publisher = publisherField.getText().toString().trim();
         String priceString = priceField.getText().toString().trim();
 
-        double price = 0.0;
+        double price;
         try {
             price = Double.parseDouble(priceString);
         } catch (NumberFormatException ex) {

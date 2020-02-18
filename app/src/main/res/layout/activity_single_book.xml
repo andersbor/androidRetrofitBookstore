@@ -81,8 +81,9 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="updateBookButtonClicked"
-                    android:text="Opdater" />
+                    android:onClick="updateButtonClicked"
+
+                    android:text="Update" />
 
                 <Button
                     android:layout_width="match_parent"
@@ -95,12 +96,6 @@
                     android:layout_height="wrap_content"
                     android:onClick="backButtonClicked"
                     android:text="Back" />
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="anotherButtonClicked"
-                    android:text="Another button" />
 
                 <TextView
                     android:id="@+id/singleBookMessageTextView"

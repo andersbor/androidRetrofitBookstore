@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SingleBookActivity"></activity>
+        <activity android:name=".SingleBookActivity" />
         <activity android:name=".AddBookActivity" />
         <activity
             android:name=".MainActivity"

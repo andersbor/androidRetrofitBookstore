@@ -6,7 +6,7 @@ class ApiUtils {
     private ApiUtils() {
     }
 
-    public static final String BASE_URL = "http://anbo-restserviceproviderbooks.azurewebsites.net/Service1.svc/";
+    private static final String BASE_URL = "http://anbo-restserviceproviderbooks.azurewebsites.net/Service1.svc/";
 
     public static BookStoreService getBookStoreService() {
 
