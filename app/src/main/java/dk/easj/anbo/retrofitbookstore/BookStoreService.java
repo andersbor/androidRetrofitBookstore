@@ -31,6 +31,6 @@ public interface BookStoreService {
     @DELETE("books/{id}")
     Call<Book> deleteBook(@Path("id") int id);
 
-    @PUT("books/{bookId}")
-    Call<Book> updateBook(@Path("bookId") int bookId, @Body Book book);
+    @PUT("books/{id}")
+    Call<Book> updateBook(@Path("id") int id, @Body Book book);
 }
