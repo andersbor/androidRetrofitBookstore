@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,12 +26,14 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = "MYBOOKS";
     private TextView messageView;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         messageView = findViewById(R.id.mainMessageTextView);
+        progressBar = findViewById(R.id.mainProgressbar);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -59,9 +62,18 @@ public class MainActivity extends AppCompatActivity {
         BookStoreService bookStoreService = ApiUtils.getBookStoreService();
         Call<List<Book>> getAllBooksCall = bookStoreService.getAllBooks();
         messageView.setText("");
+        progressBar.setVisibility(View.VISIBLE);
+
         getAllBooksCall.enqueue(new Callback<List<Book>>() {
             @Override
             public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
+                try {
+                    Thread.sleep(5000);
+                    // sleep a little to get a chance to see the progressbar in action
+                    // don't do this at home
+                } catch (InterruptedException e) {
+                }
+                progressBar.setVisibility(View.INVISIBLE);
                 if (response.isSuccessful()) {
                     List<Book> allBooks = response.body();
                     Log.d(LOG_TAG, allBooks.toString());
@@ -75,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Book>> call, Throwable t) {
+                progressBar.setVisibility(View.INVISIBLE);
                 Log.e(LOG_TAG, t.getMessage());
                 messageView.setText(t.getMessage());
             }
