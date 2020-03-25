@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class RecyclerViewSimpleAdapter<T> extends RecyclerView.Adapter<RecyclerViewSimpleAdapter<T>.MyViewHolder> {
-    private static final String LOG_TAG = "TEACHERS";
+    private static final String LOG_TAG = "MY_TAG";
     private final List<T> data;
     private OnItemClickListener onItemClickListener;
     private final int viewId = View.generateViewId();
