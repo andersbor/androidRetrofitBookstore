@@ -18,10 +18,11 @@ public interface BookStoreService {
     Call<List<Book>> getAllBooks();
 
     @GET("books/{bookId}")
-    Call<Book> getBookById(int bookId);
+    Call<Book> getBookById(@Path("bookId") int bookId);
 
     @POST("books")
     @FormUrlEncoded
+    // I had problems making this work. I used saveBookBody instead
     Call<Book> saveBook(@Field("Author") String author, @Field("Title") String title,
                         @Field("Publisher") String publisher, @Field("Price") double price);
 
