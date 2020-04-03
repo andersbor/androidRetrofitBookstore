@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     private void populateRecyclerView(List<Book> allBooks) {
         RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        RecyclerViewSimpleAdapter adapter = new RecyclerViewSimpleAdapter<>(allBooks);
+        RecyclerViewSimpleAdapter<Book> adapter = new RecyclerViewSimpleAdapter<>(allBooks);
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener((view, position, item) -> {
             Book book = (Book) item;
