@@ -52,7 +52,7 @@ public class SingleBookActivity extends AppCompatActivity {
     }
 
     public void deleteBookButtonClicked(View view) {
-        BookStoreService bookStoreService = ApiUtils.getBookStoreService();;
+        BookStoreService bookStoreService = ApiUtils.getBookStoreService();
         int bookId = originalBook.getId();
         Call<Book> deleteBookCall = bookStoreService.deleteBook(bookId);
         messageView.setText("");

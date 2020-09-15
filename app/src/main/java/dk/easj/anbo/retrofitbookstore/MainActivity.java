@@ -67,12 +67,14 @@ public class MainActivity extends AppCompatActivity {
         getAllBooksCall.enqueue(new Callback<List<Book>>() {
             @Override
             public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
-                try {
+                //ResponseBody body = response.raw();
+                Log.d(LOG_TAG, response.raw().toString());
+                /*try {
                     Thread.sleep(5000);
                     // sleep a little to get a chance to see the progressbar in action
                     // don't do this at home
                 } catch (InterruptedException e) {
-                }
+                }*/
                 progressBar.setVisibility(View.INVISIBLE);
                 if (response.isSuccessful()) {
                     List<Book> allBooks = response.body();

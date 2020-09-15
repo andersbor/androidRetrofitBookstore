@@ -15,7 +15,7 @@ import java.util.List;
 public class RecyclerViewSimpleAdapter<T> extends RecyclerView.Adapter<RecyclerViewSimpleAdapter<T>.MyViewHolder> {
     private static final String LOG_TAG = "MY_TAG";
     private final List<T> data;
-    private OnItemClickListener onItemClickListener;
+    private OnItemClickListener<T> onItemClickListener;
     private final int viewId = View.generateViewId();
 
     public RecyclerViewSimpleAdapter(List<T> data) {
@@ -60,7 +60,7 @@ public class RecyclerViewSimpleAdapter<T> extends RecyclerView.Adapter<RecyclerV
         return count;
     }
 
-    void setOnItemClickListener(OnItemClickListener itemClickListener) {
+    void setOnItemClickListener(OnItemClickListener<T> itemClickListener) {
         this.onItemClickListener = itemClickListener;
     }
 
