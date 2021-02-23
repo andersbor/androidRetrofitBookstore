@@ -36,7 +36,6 @@
                     android:id="@+id/singleBookTitleEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Title"
                     android:inputType="textCapWords" />
 
                 <TextView
@@ -49,7 +48,6 @@
                     android:id="@+id/singleBookAuthorEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Author"
                     android:inputType="textCapWords" />
 
                 <TextView
@@ -62,7 +60,6 @@
                     android:id="@+id/singleBookPublisherEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Publisher"
                     android:inputType="textCapWords" />
 
                 <TextView
@@ -75,14 +72,12 @@
                     android:id="@+id/singleBookPriceEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Price"
                     android:inputType="numberDecimal" />
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="updateButtonClicked"
-
                     android:text="Update" />
 
                 <Button

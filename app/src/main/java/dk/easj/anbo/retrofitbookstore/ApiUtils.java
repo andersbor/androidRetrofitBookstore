@@ -9,7 +9,6 @@ class ApiUtils {
     private static final String BASE_URL = "http://anbo-restserviceproviderbooks.azurewebsites.net/Service1.svc/";
 
     public static BookStoreService getBookStoreService() {
-
         return RetrofitClient.getClient(BASE_URL).create(BookStoreService.class);
     }
 }

@@ -46,16 +46,7 @@ public class AddBookActivity extends AppCompatActivity {
             priceField.setError("Not a valid price");
             return;
         }
-/*
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://anbo-restserviceproviderbooks.azurewebsites.net/Service1.svc/")
-                // https://futurestud.io/tutorials/retrofit-2-adding-customizing-the-gson-converter
-                // Gson is no longer the default converter
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        BookStoreService bookStoreService = retrofit.create(BookStoreService.class);
-*/
         BookStoreService bookStoreService = ApiUtils.getBookStoreService();
 
         // Call<Book> saveBookCall = bookStoreService.saveBook(author, title, publisher, price);
